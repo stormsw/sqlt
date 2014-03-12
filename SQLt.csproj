@@ -222,6 +222,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\datastudio.ico" />
+    <None Include="Resources\ms.png" />
     <None Include="Resources\mssql.jpg" />
   </ItemGroup>
   <ItemGroup>

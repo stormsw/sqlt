@@ -95,20 +95,20 @@
             this.txtServer.TabIndex = 0;
             this.txtServer.Text = "ol_mvgafmv";
             // 
-            // label5
+            // labelPassword
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Location = new System.Drawing.Point(12, 93);
-            this.labelPassword.Name = "label5";
+            this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(53, 13);
             this.labelPassword.TabIndex = 25;
             this.labelPassword.Text = "Password";
             // 
-            // label4
+            // labelUser
             // 
             this.labelUser.AutoSize = true;
             this.labelUser.Location = new System.Drawing.Point(12, 67);
-            this.labelUser.Name = "label4";
+            this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(29, 13);
             this.labelUser.TabIndex = 24;
             this.labelUser.Text = "User";

@@ -42,11 +42,11 @@
             this.txtService = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
-            // labelDSN
+            // labelServerSN
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 15);
-            this.label1.Name = "labelDSN";
+            this.label1.Name = "labelServerSN";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Server";
@@ -60,29 +60,29 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Instance";
             // 
-            // labelPassword
+            // labelPortassword
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 66);
-            this.label3.Name = "labelPassword";
+            this.label3.Name = "labelPortassword";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Service";
             // 
-            // label4
+            // labelUser
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 92);
-            this.label4.Name = "label4";
+            this.label4.Name = "labelUser";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "User";
             // 
-            // label5
+            // labelPassword
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 118);
-            this.label5.Name = "label5";
+            this.label5.Name = "labelPassword";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Password";
