@@ -1,32 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Odbc;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Data.OleDb;
-using System.IO;
-using System.Collections;
-using System.Globalization;
-
-namespace SQLt
+﻿namespace SQLt
 {
+    using System;
+    using System.Collections;
+    using System.Data;
+    using System.Data.Odbc;
+    using System.Data.OleDb;
+    using System.Globalization;
+    using System.IO;
+    using System.Windows.Forms;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Collections.Generic;
+
     public partial class MainForm : Form
     {
 
-        private OleDbConnection m_OleDbCon = new OleDbConnection();
-        private OdbcConnection m_ODBCConnection = new OdbcConnection();
+        private OleDbConnection OleDbConnection = new OleDbConnection();
+        private OdbcConnection OdbcConnection = new OdbcConnection();
         bool IsODBC { get; set; }
-        private String strConnectionString = "Click settings.";
+        private String connectionString = "Click settings.";
         private ArrayList tblArray;
         private const string COLUMN_NAME = "COLUMN_NAME";
         private const string DATABASE = "DATABASE";
         private const string ROOT_DB = "RootDB";
         private const string TABLES = "Tables";
         private const string FIELDS = "Fields";
+        private const string TABLE = "TABLE";
         private ArrayList fldArray;
 
         public MainForm()
@@ -37,8 +36,8 @@ namespace SQLt
 
         private void UpdateUI()
         {
-            //textBox1.Text = strConnectionString;
-            tlConStr.Text = strConnectionString;
+            //textBox1.Text = connectionString;
+            tlConStr.Text = connectionString;
         }
 
         private void OnSDE(object sender, EventArgs e)
@@ -46,17 +45,18 @@ namespace SQLt
             using (ConnectionSde SdeParams = new ConnectionSde())
             {
                 SdeParams.ShowDialog(this);
-                strConnectionString = SdeParams.ConnectionString();
+                connectionString = SdeParams.ConnectionString();
                 IsODBC = false;
                 UpdateUI();
             }
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities")]
         private void OnQuery(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
             dataGridView1.Update();
-            String strSQL = textBox2.Text;
+            String strSQL = txtHistory.Text;
             lstHistory.Items.Insert(0, strSQL);
 
             try
@@ -65,14 +65,14 @@ namespace SQLt
                 {
                     if (IsODBC)
                     {
-                        using (OdbcDataAdapter dbc = new OdbcDataAdapter(strSQL, m_ODBCConnection))
+                        using (OdbcDataAdapter dbc = new OdbcDataAdapter(strSQL, OdbcConnection))
                         {
                             dbc.Fill(m_DataTable);
                         }
                     }
                     else
                     {
-                        using (OleDbDataAdapter dba = new OleDbDataAdapter(strSQL, m_OleDbCon))
+                        using (OleDbDataAdapter dba = new OleDbDataAdapter(strSQL, OleDbConnection))
                         {
                             dba.Fill(m_DataTable);
                         }
@@ -100,7 +100,7 @@ namespace SQLt
             using (ConnectionSQL SQLParams = new ConnectionSQL())
             {
                 SQLParams.ShowDialog(this);
-                strConnectionString = SQLParams.ConnectionString();
+                connectionString = SQLParams.ConnectionString();
                 IsODBC = false;
                 UpdateUI();
             }
@@ -111,11 +111,11 @@ namespace SQLt
             try
             {
                 //connection.Open();
-                using (DataTable schTable = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables,
-                    new Object[] { null, null, null, "TABLE" }))
+                using (DataTable schemaTable = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables,
+                    new Object[] { null, null, null, TABLE }))
                 {
                     tblArray = new ArrayList();
-                    foreach (DataRow datRow in schTable.Rows)
+                    foreach (DataRow datRow in schemaTable.Rows)
                     {
                         tblArray.Add(datRow["TABLE_NAME"].ToString());
                     }
@@ -191,87 +191,102 @@ namespace SQLt
 
         private void OnConnect(object sender, EventArgs e)
         {
-            strConnectionString = tlConStr.Text.ToString();
-
-            if (strConnectionString.StartsWith("Provider", StringComparison.OrdinalIgnoreCase))
+            connectionString = tlConStr.Text.ToString();
+            if (connectionString.StartsWith("Provider", StringComparison.OrdinalIgnoreCase))
             {
                 //User can mix....
                 IsODBC = false;
+                connectOle();
             }
             else
-            {
+            {                
                 IsODBC = true;
+                connectOdbc();
             }
 
-            if (!IsODBC)
+            btnQuery.Enabled = (IsOleConnected || IsOdbcConnected);
+            tlConStr.Enabled = !btnQuery.Enabled;
+        }
+
+        private void connectOle()
+        {
+            if (!IsOleConnected && connectionString.Length > 10)
             {
-                if ((m_OleDbCon.State != ConnectionState.Open) && strConnectionString.Length > 10)
+                OleDbConnection.ConnectionString = connectionString;
+                try
                 {
-                    m_OleDbCon.ConnectionString = strConnectionString;
-                    try
-                    {
-                        m_OleDbCon.Open();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-                    if (m_OleDbCon.State == ConnectionState.Open)
-                    {
-                        btnConnect.Text = "Disconnect [OLEDB]";
-                        dataGridView1.DataSource = m_OleDbCon.GetSchema();
-                        FillTreeView(m_OleDbCon);
-                    }
+                    OleDbConnection.Open();
                 }
-                else
+                catch (Exception ex)
                 {
-                    m_OleDbCon.Close();
-                    btnConnect.Text = "Connect";
-                    dataGridView1.DataSource = null;
-
+                    MessageBox.Show(ex.Message);
                 }
 
+                if (IsOleConnected)
+                {
+                    btnConnect.Text = "Disconnect [OLEDB]";
+                    dataGridView1.DataSource = OleDbConnection.GetSchema();
+                    FillTreeView(OleDbConnection);
+                }
             }
             else
             {
-                if (m_ODBCConnection.State != ConnectionState.Open && strConnectionString.Length > 0)
-                {
-                    m_ODBCConnection.ConnectionString = strConnectionString;
-                    try
-                    {
-                        m_ODBCConnection.Open();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                OleDbConnection.Close();
+                btnConnect.Text = "Connect";
+                dataGridView1.DataSource = null;
+            }
+        }
 
-                    if (m_ODBCConnection.State == ConnectionState.Open)
-                    {
-                        btnConnect.Text = "Disconnect [ODBC]";
-                        dataGridView1.DataSource = m_ODBCConnection.GetSchema();
-                    }
-                }
-                else
+        private void connectOdbc()
+        {
+            if (!IsOdbcConnected && connectionString.Length > 0)
+            {
+                OdbcConnection.ConnectionString = connectionString;
+                try
                 {
-                    m_ODBCConnection.Close();
-                    btnConnect.Text = "Connect";
-                    dataGridView1.DataSource = null;
+                    OdbcConnection.Open();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                if (IsOdbcConnected)
+                {
+                    btnConnect.Text = "Disconnect [ODBC]";
+                    dataGridView1.DataSource = OdbcConnection.GetSchema();
                 }
             }
+            else
+            {
+                OdbcConnection.Close();
+                btnConnect.Text = "Connect";
+                dataGridView1.DataSource = null;
+            }
+        }
 
-            btnQuery.Enabled = ((m_OleDbCon.State == ConnectionState.Open) ||
-                (m_ODBCConnection.State == ConnectionState.Open));
-            tlConStr.Enabled = !btnQuery.Enabled;
+        private bool IsOdbcConnected
+        {
+            get
+            {
+                return OdbcConnection.State == ConnectionState.Open;
+            }
+        }
+
+        private bool IsOleConnected
+        {
+            get
+            {
+                return OleDbConnection.State == ConnectionState.Open;
+            }
         }
 
         private void OnInformix(object sender, EventArgs e)
         {
-            using (ConnectionInformix IfxParams = new ConnectionInformix())
+            using (ConnectionInformix InformixParams = new ConnectionInformix())
             {
-                IfxParams.ShowDialog();
-                strConnectionString = IfxParams.ConnectionString();
+                InformixParams.ShowDialog();
+                connectionString = InformixParams.ConnectionString();
                 IsODBC = false;
                 UpdateUI();
             }
@@ -282,7 +297,7 @@ namespace SQLt
             using (ConnnectionOracle OraParams = new ConnnectionOracle())
             {
                 OraParams.ShowDialog();
-                strConnectionString = OraParams.ConnectionString();
+                connectionString = OraParams.ConnectionString();
                 IsODBC = false;
                 UpdateUI();
             }
@@ -290,7 +305,7 @@ namespace SQLt
 
         private void lstHistory_DoubleClick(object sender, EventArgs e)
         {
-            textBox2.Text = lstHistory.SelectedItem.ToString();
+            txtHistory.Text = lstHistory.SelectedItem.ToString();
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
@@ -301,7 +316,7 @@ namespace SQLt
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (lstHistory.SelectedItem != null)
-                textBox2.Text += ";\r\n" + lstHistory.SelectedItem.ToString();
+                txtHistory.Text += ";\r\n" + lstHistory.SelectedItem.ToString();
         }
 
         private void SaveSQL(object sender, EventArgs e)
@@ -320,9 +335,8 @@ namespace SQLt
                     {
                         using (StreamWriter sf = new StreamWriter(FileName))
                         {
-                            sf.Write(textBox2.Text);
+                            sf.Write(txtHistory.Text);
                             sf.Flush();
-                         //   sf.Close();
                         }
                     }
                     catch (Exception ex)
@@ -347,7 +361,7 @@ namespace SQLt
                     {
                         using (StreamReader sf = new StreamReader(FileName))
                         {
-                            textBox2.Text = sf.ReadToEnd();
+                            txtHistory.Text = sf.ReadToEnd();
                         }
                     }
                     catch (Exception ex)
@@ -360,21 +374,23 @@ namespace SQLt
 
         private void SaveHistory()
         {
-            String FileName = Application.CommonAppDataPath.ToString() + "\\OleSqlHistoryData.sql";
-
+            String FileName = getFileName();
+            List<string> stringList = new List<string>();
+            //stringList.OrEmptyIfNull
             try
             {
                 using (StreamWriter sf = new StreamWriter(FileName))
                 {
+                    lstHistory.Items.Cast<Object>()
+                        .ForEachLazzy(item => sf.WriteLine(item.ToString())).ToArray();
+                    
                     int Cnt = lstHistory.Items.Count;
                     while (Cnt > 0)
                     {
                         sf.WriteLine(lstHistory.Items[--Cnt].ToString());
                     }
 
-
                     sf.Flush();
-                    //sf.Close();
                 }
             }
             catch (Exception ex)
@@ -385,7 +401,7 @@ namespace SQLt
 
         private void LoadHistory()
         {
-            String FileName = Application.CommonAppDataPath.ToString() + "\\OleSqlHistoryData.sql";
+            String FileName = getFileName();
             try
             {
                 using (StreamReader sf = new StreamReader(FileName))
@@ -394,7 +410,6 @@ namespace SQLt
                     {
                         lstHistory.Items.Insert(0, sf.ReadLine());
                     }
-                    //sf.Close();
                 }
             }
             catch (System.IO.FileNotFoundException)
@@ -406,6 +421,11 @@ namespace SQLt
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private static string getFileName()
+        {            
+            return Application.CommonAppDataPath.ToString() + "\\OleSqlHistoryData.sql";
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
@@ -422,8 +442,9 @@ namespace SQLt
         private void SQL_KeyDown(object sender, KeyEventArgs e)
         {
             if ((e.KeyCode == Keys.Enter) && (e.Modifiers == Keys.Control))
+            {
                 OnQuery(this, e);
-
+            }
         }
 
         private void OnODBC(object sender, EventArgs e)
@@ -431,7 +452,7 @@ namespace SQLt
             using (ConnectionODBC ODBCParams = new ConnectionODBC())
             {
                 ODBCParams.ShowDialog(this);
-                strConnectionString = ODBCParams.ConnectionString();
+                connectionString = ODBCParams.ConnectionString();
                 IsODBC = true;
                 UpdateUI();
             }
@@ -439,14 +460,12 @@ namespace SQLt
 
         private void SwitchDBMode(object sender, EventArgs e)
         {
-            if (IsODBC != chkOLE.Checked)
+            if (IsODBC != checkOLE.Checked)
             {
-                IsODBC = chkOLE.Checked;
+                IsODBC = checkOLE.Checked;
                 //perform needed operations (like db disconnect)
             }
-
-            chkOLE.Text = (IsODBC) ? "ODBC" : "OLE";
-
+            checkOLE.Text = (IsODBC) ? "ODBC" : "OLE";
         }
     }
 }

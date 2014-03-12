@@ -40,7 +40,7 @@
             this.oRACLEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oDBCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlConStr = new System.Windows.Forms.ToolStripTextBox();
-            this.chkOLE = new System.Windows.Forms.ToolStripButton();
+            this.checkOLE = new System.Windows.Forms.ToolStripButton();
             this.btnConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnQuery = new System.Windows.Forms.ToolStripButton();
@@ -56,7 +56,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtHistory = new System.Windows.Forms.TextBox();
             this.ObjectView = new System.Windows.Forms.TreeView();
             this.dbObjects = new System.Windows.Forms.ImageList(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -104,7 +104,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnConStrBuilder,
             this.tlConStr,
-            this.chkOLE,
+            this.checkOLE,
             this.btnConnect,
             this.toolStripSeparator1,
             this.btnQuery,
@@ -176,16 +176,16 @@
             this.tlConStr.Name = "tlConStr";
             this.tlConStr.Size = new System.Drawing.Size(250, 39);
             // 
-            // chkOLE
+            // checkOLE
             // 
-            this.chkOLE.CheckOnClick = true;
-            this.chkOLE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.chkOLE.Image = ((System.Drawing.Image)(resources.GetObject("chkOLE.Image")));
-            this.chkOLE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.chkOLE.Name = "chkOLE";
-            this.chkOLE.Size = new System.Drawing.Size(23, 36);
-            this.chkOLE.Text = "OLE";
-            this.chkOLE.Click += new System.EventHandler(this.SwitchDBMode);
+            this.checkOLE.CheckOnClick = true;
+            this.checkOLE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
+            this.checkOLE.Image = ((System.Drawing.Image)(resources.GetObject("checkOLE.Image")));
+            this.checkOLE.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.checkOLE.Name = "checkOLE";
+            this.checkOLE.Size = new System.Drawing.Size(23, 36);
+            this.checkOLE.Text = "OLE";
+            this.checkOLE.Click += new System.EventHandler(this.SwitchDBMode);
             // 
             // btnConnect
             // 
@@ -268,7 +268,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.lstHistory);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer2.Panel1.Controls.Add(this.txtHistory);
             // 
             // splitContainer2.Panel2
             // 
@@ -331,15 +331,15 @@
             this.toolStripMenuItem4.Text = "Clear";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
-            // textBox2
+            // txtHistory
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(0, 0);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(500, 232);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "SELECT * FROM OPENQUERY(LAFIS_INVEKOS,\'SELECT 1\') ";
+            this.txtHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtHistory.Location = new System.Drawing.Point(0, 0);
+            this.txtHistory.Multiline = true;
+            this.txtHistory.Name = "txtHistory";
+            this.txtHistory.Size = new System.Drawing.Size(500, 232);
+            this.txtHistory.TabIndex = 1;
+            this.txtHistory.Text = "SELECT * FROM OPENQUERY(LAFIS_INVEKOS,\'SELECT 1\') ";
             // 
             // ObjectView
             // 
@@ -430,10 +430,10 @@
         private System.Windows.Forms.ToolStripButton btnSave;
         private System.Windows.Forms.ToolStripButton btnOpen;
         private System.Windows.Forms.ToolStripMenuItem oDBCToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton chkOLE;
+        private System.Windows.Forms.ToolStripButton checkOLE;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ListBox lstHistory;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtHistory;
         private System.Windows.Forms.TreeView ObjectView;
         private System.Windows.Forms.ImageList dbObjects;
     }
