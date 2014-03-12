@@ -40,11 +40,11 @@
             this.labelSid = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnOk
+            // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(94, 129);
-            this.button1.Name = "btnOk";
+            this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
             this.button1.Text = "Cancel";
@@ -69,7 +69,6 @@
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(154, 20);
             this.txtPass.TabIndex = 3;
-            this.txtPass.Text = "infuser";
             // 
             // txtUser
             // 
@@ -77,7 +76,6 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(154, 20);
             this.txtUser.TabIndex = 2;
-            this.txtUser.Text = "informix";
             // 
             // txtInstance
             // 
@@ -85,7 +83,6 @@
             this.txtInstance.Name = "txtInstance";
             this.txtInstance.Size = new System.Drawing.Size(154, 20);
             this.txtInstance.TabIndex = 1;
-            this.txtInstance.Text = "lafis";
             // 
             // txtServer
             // 
@@ -93,7 +90,6 @@
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(154, 20);
             this.txtServer.TabIndex = 0;
-            this.txtServer.Text = "ol_mvgafmv";
             // 
             // labelPassword
             // 
@@ -113,25 +109,25 @@
             this.labelUser.TabIndex = 24;
             this.labelUser.Text = "User";
             // 
-            // labelUser
+            // labelDatabase
             // 
             this.labelDatabase.AutoSize = true;
             this.labelDatabase.Location = new System.Drawing.Point(12, 41);
-            this.labelDatabase.Name = "labelUser";
-            this.labelDatabase.Size = new System.Drawing.Size(53, 13);
+            this.labelDatabase.Name = "labelDatabase";
+            this.labelDatabase.Size = new System.Drawing.Size(64, 13);
             this.labelDatabase.TabIndex = 23;
             this.labelDatabase.Text = "DATABASE";
             // 
-            // labelDSN
+            // labelSid
             // 
             this.labelSid.AutoSize = true;
             this.labelSid.Location = new System.Drawing.Point(12, 15);
-            this.labelSid.Name = "labelDSN";
+            this.labelSid.Name = "labelSid";
             this.labelSid.Size = new System.Drawing.Size(64, 13);
             this.labelSid.TabIndex = 22;
             this.labelSid.Text = "Informix SID";
             // 
-            // ConIfx
+            // ConnectionInformix
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,7 +145,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ConnectionInformix";
             this.Text = "Informix Connection";
-            this.Load += new System.EventHandler(this.OnLoad);           
+            this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

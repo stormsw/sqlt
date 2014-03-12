@@ -42,47 +42,47 @@
             this.txtService = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
-            // labelServerSN
+            // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 15);
-            this.label1.Name = "labelServerSN";
+            this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Server";
             // 
-            // labelUser
+            // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 40);
-            this.label2.Name = "labelUser";
+            this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Instance";
             // 
-            // labelPortassword
+            // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 66);
-            this.label3.Name = "labelPortassword";
+            this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Service";
             // 
-            // labelUser
+            // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 92);
-            this.label4.Name = "labelUser";
+            this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "User";
             // 
-            // labelPassword
+            // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 118);
-            this.label5.Name = "labelPassword";
+            this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Password";
@@ -93,7 +93,6 @@
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(154, 20);
             this.txtServer.TabIndex = 0;
-            this.txtServer.Text = "gaf1";
             // 
             // txtInstance
             // 
@@ -101,7 +100,6 @@
             this.txtInstance.Name = "txtInstance";
             this.txtInstance.Size = new System.Drawing.Size(154, 20);
             this.txtInstance.TabIndex = 1;
-            this.txtInstance.Text = "lafis";
             // 
             // txtUser
             // 
@@ -109,7 +107,6 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(154, 20);
             this.txtUser.TabIndex = 3;
-            this.txtUser.Text = "sde";
             // 
             // txtPass
             // 
@@ -118,7 +115,6 @@
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(154, 20);
             this.txtPass.TabIndex = 4;
-            this.txtPass.Text = "sde";
             // 
             // btnOk
             // 
@@ -131,11 +127,11 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.OnOK);
             // 
-            // btnOk
+            // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(85, 152);
-            this.button1.Name = "btnOk";
+            this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "Cancel";
@@ -150,10 +146,9 @@
             this.txtService.PromptChar = ' ';
             this.txtService.Size = new System.Drawing.Size(154, 20);
             this.txtService.TabIndex = 2;
-            this.txtService.Text = "5151";
             this.txtService.ValidatingType = typeof(int);
             // 
-            // ConSde
+            // ConnectionSde
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,9 +166,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "ConSde";
+            this.Name = "ConnectionSde";
             this.Text = "SDE Connection";
-            this.Load += new System.EventHandler(this.OnLoad);            
+            this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

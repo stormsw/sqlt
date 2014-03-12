@@ -52,14 +52,13 @@
             this.txtPort.PromptChar = ' ';
             this.txtPort.Size = new System.Drawing.Size(154, 20);
             this.txtPort.TabIndex = 1;
-            this.txtPort.Text = "1521";
             this.txtPort.ValidatingType = typeof(int);
             // 
-            // btnOk
+            // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(97, 179);
-            this.button1.Name = "btnOk";
+            this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
             this.button1.Text = "Cancel";
@@ -84,7 +83,6 @@
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(154, 20);
             this.txtPass.TabIndex = 4;
-            this.txtPass.Text = "a";
             // 
             // txtUser
             // 
@@ -92,7 +90,6 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(154, 20);
             this.txtUser.TabIndex = 3;
-            this.txtUser.Text = "lafisadmin";
             // 
             // txtInstance
             // 
@@ -100,7 +97,6 @@
             this.txtInstance.Name = "txtInstance";
             this.txtInstance.Size = new System.Drawing.Size(154, 20);
             this.txtInstance.TabIndex = 2;
-            this.txtInstance.Text = "bb";
             // 
             // txtServer
             // 
@@ -108,7 +104,6 @@
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(154, 20);
             this.txtServer.TabIndex = 0;
-            this.txtServer.Text = "gafbb";
             // 
             // labelPassword
             // 
@@ -128,29 +123,29 @@
             this.labelUser.TabIndex = 16;
             this.labelUser.Text = "User";
             // 
-            // labelPassword
+            // labelPort
             // 
             this.labelPort.AutoSize = true;
             this.labelPort.Location = new System.Drawing.Point(18, 41);
-            this.labelPort.Name = "labelPassword";
+            this.labelPort.Name = "labelPort";
             this.labelPort.Size = new System.Drawing.Size(26, 13);
             this.labelPort.TabIndex = 15;
             this.labelPort.Text = "Port";
             // 
-            // labelUser
+            // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(18, 67);
-            this.label2.Name = "labelUser";
+            this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 14;
             this.label2.Text = "Instance";
             // 
-            // labelDSN
+            // labelServer
             // 
             this.labelServer.AutoSize = true;
             this.labelServer.Location = new System.Drawing.Point(15, 15);
-            this.labelServer.Name = "labelDSN";
+            this.labelServer.Name = "labelServer";
             this.labelServer.Size = new System.Drawing.Size(38, 13);
             this.labelServer.TabIndex = 13;
             this.labelServer.Text = "Server";
@@ -162,7 +157,7 @@
             this.labelDatabase.Name = "labelDatabase";
             this.labelDatabase.Size = new System.Drawing.Size(53, 13);
             this.labelDatabase.TabIndex = 25;
-            this.labelDatabase.Text = "DATABASE";
+            this.labelDatabase.Text = "Database";
             // 
             // txtDatabase
             // 
@@ -170,9 +165,8 @@
             this.txtDatabase.Name = "txtDatabase";
             this.txtDatabase.Size = new System.Drawing.Size(154, 20);
             this.txtDatabase.TabIndex = 5;
-            this.txtDatabase.Text = "lafis";
             // 
-            // ConOra
+            // ConnnectionOracle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,8 +188,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ConnnectionOracle";
             this.Text = "Oracle connection";
-            this.Load += new System.EventHandler(this.OnLoad);
             this.Activated += new System.EventHandler(this.OnActivated);
+            this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -40,11 +40,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnOk
+            // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(85, 120);
-            this.button1.Name = "btnOk";
+            this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
             this.button1.Text = "Cancel";
@@ -69,7 +69,6 @@
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(154, 20);
             this.txtPass.TabIndex = 3;
-            this.txtPass.Text = "sde";
             // 
             // txtUser
             // 
@@ -77,7 +76,6 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(154, 20);
             this.txtUser.TabIndex = 2;
-            this.txtUser.Text = "sde";
             // 
             // txtInstance
             // 
@@ -85,7 +83,6 @@
             this.txtInstance.Name = "txtInstance";
             this.txtInstance.Size = new System.Drawing.Size(154, 20);
             this.txtInstance.TabIndex = 1;
-            this.txtInstance.Text = "lafis";
             // 
             // txtServer
             // 
@@ -93,40 +90,39 @@
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(154, 20);
             this.txtServer.TabIndex = 0;
-            this.txtServer.Text = "gaf1";
             // 
-            // labelPassword
+            // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 87);
-            this.label5.Name = "labelPassword";
+            this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Password";
             // 
-            // labelUser
+            // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 61);
-            this.label4.Name = "labelUser";
+            this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 14;
             this.label4.Text = "User";
             // 
-            // labelUser
+            // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 35);
-            this.label2.Name = "labelUser";
+            this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "Instance";
             // 
-            // labelServerSN
+            // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 9);
-            this.label1.Name = "labelServerSN";
+            this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 12;
             this.label1.Text = "Server";
@@ -149,8 +145,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ConnectionSQL";
             this.Text = "MSSQL Conection";
-            this.Load += new System.EventHandler(this.OnLoad);
             this.Activated += new System.EventHandler(this.OnActivated);
+            this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 
