@@ -2,22 +2,22 @@
 {
     using System;
     using System.Collections;
+    using System.Collections.Generic;
     using System.Data;
     using System.Data.Odbc;
     using System.Data.OleDb;
     using System.Globalization;
     using System.IO;
-    using System.Windows.Forms;
     using System.Linq;
-    using System.Linq.Expressions;
-    using System.Collections.Generic;
+    using System.Windows.Forms;
 
     public partial class MainForm : Form
     {
-
         private OleDbConnection OleDbConnection = new OleDbConnection();
         private OdbcConnection OdbcConnection = new OdbcConnection();
-        bool IsODBC { get; set; }
+
+        private bool IsODBC { get; set; }
+
         private String connectionString = "Click settings.";
         private ArrayList tblArray;
         private const string COLUMN_NAME = "COLUMN_NAME";
@@ -32,7 +32,6 @@
         {
             InitializeComponent();
         }
-
 
         private void UpdateUI()
         {
@@ -199,7 +198,7 @@
                 connectOle();
             }
             else
-            {                
+            {
                 IsODBC = true;
                 connectOdbc();
             }
@@ -383,7 +382,7 @@
                 {
                     lstHistory.Items.Cast<Object>()
                         .ForEachLazzy(item => sf.WriteLine(item.ToString())).ToArray();
-                    
+
                     int Cnt = lstHistory.Items.Count;
                     while (Cnt > 0)
                     {
@@ -420,11 +419,10 @@
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private static string getFileName()
-        {            
+        {
             return Application.CommonAppDataPath.ToString() + "\\OleSqlHistoryData.sql";
         }
 

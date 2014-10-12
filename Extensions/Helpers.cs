@@ -1,10 +1,11 @@
 ﻿namespace SQLt
 {
+    using Microsoft.Win32;
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Windows.Forms;
     using System.Xml.Serialization;
 
     public static class HelpersExtensions
@@ -48,6 +49,7 @@
                 }
             }
         }
+
         /// <summary>
         /// Applies a specified function to the corresponding elements of two sequences, producing a sequence of the results.
         /// </summary>
@@ -118,13 +120,78 @@
             new XmlSerializer(typeof(T)).Serialize(stream, me);
         }
 
-        public static T fromXmlString<T>(string xml)
+        public static T XmlDeserializeFromString<T>(this string objectData)
         {
-            T result = default(T);
-            //Stream s = new MemoryStream();
-            //s.Write(xml,0,
-            //new XmlSerializer(typeof(T)).Deserialize(xml);
-            //.Serialize(stream, me);
+            return (T)XmlDeserializeFromString(objectData, typeof(T));
+        }
+
+        public static object XmlDeserializeFromString(this string objectData, Type type)
+        {
+            var serializer = new XmlSerializer(type);
+            object result;
+
+            using (TextReader reader = new StringReader(objectData))
+            {
+                result = serializer.Deserialize(reader);
+            }
+
+            return result;
+        }
+    }
+
+    //Connection forms helpers
+    public static class ConnectionFormsUtils
+    {
+        public static void BaseSaveOptions(RegistryKey SearchKey, object attributes)
+        {
+            try
+            {
+                if (SearchKey != null)
+                {
+                    SearchKey.SetValue("Attributes", attributes.ToXml());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new SaveOptionsException();
+            }
+        }
+
+        public static void BaseLoadOptions<T>(RegistryKey SearchKey, T attributes)
+        {
+            try
+            {
+                if (SearchKey != null)
+                {
+                    var serialized = SearchKey.GetValue("Attributes", null);
+                    if (serialized != null)
+                    {
+                        attributes = serialized.ToString().XmlDeserializeFromString<T>();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new LoadOptionsException();
+            }
+        }
+
+        public static void makeBind(Control controll, object attributes, string attrName)
+        {
+            Binding binding = new Binding(
+                getPropertyName(controll),
+                attributes,
+                attrName);
+            controll.DataBindings.Add(binding);
+        }
+
+        public static string getPropertyName(Control controll)
+        {
+            string result = "Text";
+            if (controll is TextBox)
+            {
+                return "Text";
+            }
             return result;
         }
     }
