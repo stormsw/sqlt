@@ -223,4 +223,34 @@
   <data name="OracleDefaultPort" xml:space="preserve">
     <value>1521</value>
   </data>
+  <data name="RegKeyOptionsSQL" xml:space="preserve">
+    <value>Options\SQL</value>
+  </data>
+  <data name="SqlConnectionFormat" xml:space="preserve">
+    <value>Provider=sqloledb;Data Source={0};Initial Catalog={1};User Id={2};Password={3};</value>
+  </data>
+  <data name="SqlOptionServer" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="SqlOptionUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="SqlOptionPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SqlOptionInstance" xml:space="preserve">
+    <value>Instance</value>
+  </data>
+  <data name="SqlDefaultServer" xml:space="preserve">
+    <value>localhost</value>
+  </data>
+  <data name="SqlDefaultUser" xml:space="preserve">
+    <value>sa</value>
+  </data>
+  <data name="SqlDefaultPassword" xml:space="preserve">
+    <value>sa</value>
+  </data>
+  <data name="SqlDefaultInstance" xml:space="preserve">
+    <value>master</value>
+  </data>
 </root>

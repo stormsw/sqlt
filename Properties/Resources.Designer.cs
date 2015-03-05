@@ -376,5 +376,95 @@ namespace SQLt.Properties {
                 return ResourceManager.GetString("RegKeyOptionsOracle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options\SQL.
+        /// </summary>
+        internal static string RegKeyOptionsSQL {
+            get {
+                return ResourceManager.GetString("RegKeyOptionsSQL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provider=sqloledb;Data Source={0};Initial Catalog={1};User Id={2};Password={3};.
+        /// </summary>
+        internal static string SqlConnectionFormat {
+            get {
+                return ResourceManager.GetString("SqlConnectionFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to master.
+        /// </summary>
+        internal static string SqlDefaultInstance {
+            get {
+                return ResourceManager.GetString("SqlDefaultInstance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sa.
+        /// </summary>
+        internal static string SqlDefaultPassword {
+            get {
+                return ResourceManager.GetString("SqlDefaultPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to localhost.
+        /// </summary>
+        internal static string SqlDefaultServer {
+            get {
+                return ResourceManager.GetString("SqlDefaultServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sa.
+        /// </summary>
+        internal static string SqlDefaultUser {
+            get {
+                return ResourceManager.GetString("SqlDefaultUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instance.
+        /// </summary>
+        internal static string SqlOptionInstance {
+            get {
+                return ResourceManager.GetString("SqlOptionInstance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string SqlOptionPassword {
+            get {
+                return ResourceManager.GetString("SqlOptionPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server.
+        /// </summary>
+        internal static string SqlOptionServer {
+            get {
+                return ResourceManager.GetString("SqlOptionServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        internal static string SqlOptionUser {
+            get {
+                return ResourceManager.GetString("SqlOptionUser", resourceCulture);
+            }
+        }
     }
 }

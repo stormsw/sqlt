@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+using SQLt.Properties;
 
 namespace SQLt
 {
@@ -17,36 +18,38 @@ namespace SQLt
 
         private string Server { get; set; }
 
+        private string SQL_REGKEY = Resources.RegKeyOptionsSQL;
+
         private string User { get; set; }
         public String ConnectionString()
         {
             String ConnectionStr;
-            ConnectionStr = String.Format(CultureInfo.CurrentCulture, "Provider=sqloledb;Data Source={0};Initial Catalog={1};User Id={2};Password={3};", Server, Instance, User, Password);
+            ConnectionStr = String.Format(CultureInfo.CurrentCulture, Resources.SqlConnectionFormat, Server, Instance, User, Password);
             return ConnectionStr;
         }
 
         public void LoadOptions()
         {
-            Application.UserAppDataRegistry.CreateSubKey("Options\\SQL");
-            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey("Options\\SQL");
+            Application.UserAppDataRegistry.CreateSubKey(SQL_REGKEY);
+            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(SQL_REGKEY);
             if (SearchKey != null)
             {
-                Server = SearchKey.GetValue("Server", "").ToString();
-                User = SearchKey.GetValue("User", "lafisadmin").ToString();
-                Password = SearchKey.GetValue("Password", "a").ToString();
-                Instance = SearchKey.GetValue("Instance", "lafis").ToString();
+                Server = SearchKey.GetValue(Resources.SqlOptionServer, Resources.SqlDefaultServer).ToString();
+                User = SearchKey.GetValue(Resources.SqlOptionUser, Resources.SqlDefaultUser).ToString();
+                Password = SearchKey.GetValue(Resources.SqlOptionPassword, Resources.SqlDefaultPassword).ToString();
+                Instance = SearchKey.GetValue(Resources.SqlOptionInstance, Resources.SqlDefaultInstance).ToString();
             }
         }
 
         public void SaveOptions()
         {
-            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey("Options\\SQL", true);
+            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(SQL_REGKEY, true);
             if (SearchKey != null)
             {
-                SearchKey.SetValue("Server", Server);
-                SearchKey.SetValue("User", User);
-                SearchKey.SetValue("Password", Password);
-                SearchKey.SetValue("Instance", Instance);
+                SearchKey.SetValue(Resources.SqlOptionServer, Server);
+                SearchKey.SetValue(Resources.SqlOptionUser, User);
+                SearchKey.SetValue(Resources.SqlOptionPassword, Password);
+                SearchKey.SetValue(Resources.SqlOptionInstance, Instance);
             }
         }
         private void OnActivated(object sender, EventArgs e)
