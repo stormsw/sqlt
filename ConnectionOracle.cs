@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+using SQLt.Properties;
 
 namespace SQLt
 {
@@ -31,7 +32,7 @@ namespace SQLt
              */
 
             ConnectionStr = String.Format(CultureInfo.InvariantCulture,
-                "Provider=OraOLEDB.Oracle;Data Source=(DESCRIPTION=(CID=GTU_APP)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST={0})(PORT={1})))(CONNECT_DATA=(SID={2})(SERVER=DEDICATED)));User Id={3};Password={4};",
+                Resources.ConnectionFormatOracle,
                 Server, Port, SID, User, Password /*DATABASE,*/
                 );
             return ConnectionStr;
@@ -39,30 +40,30 @@ namespace SQLt
 
         public void LoadOptions()
         {
-            Application.UserAppDataRegistry.CreateSubKey("Options\\Oracle");
-            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey("Options\\Oracle");
+            Application.UserAppDataRegistry.CreateSubKey(Resources.RegKeyOptionsOracle);
+            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(Resources.RegKeyOptionsOracle);
             if (SearchKey != null)
             {
-                Server = SearchKey.GetValue("Server", "localhost").ToString();
-                User = SearchKey.GetValue("User", "lafisadmin").ToString();
-                Password = SearchKey.GetValue("Password", "a").ToString();
-                Database = SearchKey.GetValue("DATABASE", "lafis").ToString();
-                SID = SearchKey.GetValue("SID", "orcl").ToString();
-                Port = Int32.Parse(SearchKey.GetValue("Port", "1521").ToString(), CultureInfo.InvariantCulture);
+                Server = SearchKey.GetValue(Resources.OracleOptionServer, Resources.OracleDefaultServer).ToString();
+                User = SearchKey.GetValue(Resources.OracleOptionUser, Resources.OracleDefaultUser).ToString();
+                Password = SearchKey.GetValue(Resources.OracleOptionPassword, Resources.OracleDefaultPassword).ToString();
+                Database = SearchKey.GetValue(Resources.OracleOptionDb, Resources.OracleDefaultDatabase).ToString();
+                SID = SearchKey.GetValue(Resources.OracleOptionSID, Resources.OracleDefaultSid).ToString();
+                Port = Int32.Parse(SearchKey.GetValue(Resources.OracleOptionPort, Resources.OracleDefaultPort).ToString(), CultureInfo.InvariantCulture);
             }
         }
 
         public void SaveOptions()
         {
-            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey("Options\\Oracle", true);
+            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(Resources.RegKeyOptionsOracle, true);
             if (SearchKey != null)
             {
-                SearchKey.SetValue("Server", Server);
-                SearchKey.SetValue("User", User);
-                SearchKey.SetValue("Password", Password);
-                SearchKey.SetValue("DATABASE", Database);
-                SearchKey.SetValue("SID", SID);
-                SearchKey.SetValue("Port", Port);
+                SearchKey.SetValue(Resources.OracleOptionServer, Server);
+                SearchKey.SetValue(Resources.OracleOptionUser, User);
+                SearchKey.SetValue(Resources.OracleOptionPassword, Password);
+                SearchKey.SetValue(Resources.OracleOptionDb, Database);
+                SearchKey.SetValue(Resources.OracleOptionSID, SID);
+                SearchKey.SetValue(Resources.OracleOptionPort, Port);
             }
         }
 

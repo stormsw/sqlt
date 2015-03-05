@@ -181,4 +181,46 @@
   <data name="OdbcDefaultDSN" xml:space="preserve">
     <value />
   </data>
+  <data name="RegKeyOptionsOracle" xml:space="preserve">
+    <value>Options\Oracle</value>
+  </data>
+  <data name="ConnectionFormatOracle" xml:space="preserve">
+    <value>Provider=OraOLEDB.Oracle;Data Source=(DESCRIPTION=(CID=GTU_APP)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST={0})(PORT={1})))(CONNECT_DATA=(SID={2})(SERVER=DEDICATED)));User Id={3};Password={4};</value>
+  </data>
+  <data name="OracleOptionServer" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="OracleOptionUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="OracleOptionPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="OracleOptionDb" xml:space="preserve">
+    <value>DATABASE</value>
+  </data>
+  <data name="OracleOptionSID" xml:space="preserve">
+    <value>SID</value>
+  </data>
+  <data name="OracleOptionPort" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="OracleDefaultServer" xml:space="preserve">
+    <value>localhost</value>
+  </data>
+  <data name="OracleDefaultUser" xml:space="preserve">
+    <value>lafisadmin</value>
+  </data>
+  <data name="OracleDefaultPassword" xml:space="preserve">
+    <value>a</value>
+  </data>
+  <data name="OracleDefaultDatabase" xml:space="preserve">
+    <value>lafis</value>
+  </data>
+  <data name="OracleDefaultSid" xml:space="preserve">
+    <value>orcl</value>
+  </data>
+  <data name="OracleDefaultPort" xml:space="preserve">
+    <value>1521</value>
+  </data>
 </root>

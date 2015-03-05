@@ -70,6 +70,15 @@ namespace SQLt.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provider=OraOLEDB.Oracle;Data Source=(DESCRIPTION=(CID=GTU_APP)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST={0})(PORT={1})))(CONNECT_DATA=(SID={2})(SERVER=DEDICATED)));User Id={3};Password={4};.
+        /// </summary>
+        internal static string ConnectionFormatOracle {
+            get {
+                return ResourceManager.GetString("ConnectionFormatOracle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provider=Ifxoledbc.2;User ID={2};password={3};Data Source={1}@{0};Persist Security Info=true.
         /// </summary>
         internal static string InformixConnectionFormat {
@@ -234,6 +243,114 @@ namespace SQLt.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to lafis.
+        /// </summary>
+        internal static string OracleDefaultDatabase {
+            get {
+                return ResourceManager.GetString("OracleDefaultDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to a.
+        /// </summary>
+        internal static string OracleDefaultPassword {
+            get {
+                return ResourceManager.GetString("OracleDefaultPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1521.
+        /// </summary>
+        internal static string OracleDefaultPort {
+            get {
+                return ResourceManager.GetString("OracleDefaultPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to localhost.
+        /// </summary>
+        internal static string OracleDefaultServer {
+            get {
+                return ResourceManager.GetString("OracleDefaultServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to orcl.
+        /// </summary>
+        internal static string OracleDefaultSid {
+            get {
+                return ResourceManager.GetString("OracleDefaultSid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lafisadmin.
+        /// </summary>
+        internal static string OracleDefaultUser {
+            get {
+                return ResourceManager.GetString("OracleDefaultUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DATABASE.
+        /// </summary>
+        internal static string OracleOptionDb {
+            get {
+                return ResourceManager.GetString("OracleOptionDb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string OracleOptionPassword {
+            get {
+                return ResourceManager.GetString("OracleOptionPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port.
+        /// </summary>
+        internal static string OracleOptionPort {
+            get {
+                return ResourceManager.GetString("OracleOptionPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server.
+        /// </summary>
+        internal static string OracleOptionServer {
+            get {
+                return ResourceManager.GetString("OracleOptionServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SID.
+        /// </summary>
+        internal static string OracleOptionSID {
+            get {
+                return ResourceManager.GetString("OracleOptionSID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        internal static string OracleOptionUser {
+            get {
+                return ResourceManager.GetString("OracleOptionUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Options\Informix.
         /// </summary>
         internal static string RegKeyOptionsInformix {
@@ -248,6 +365,15 @@ namespace SQLt.Properties {
         internal static string RegKeyOptionsODBC {
             get {
                 return ResourceManager.GetString("RegKeyOptionsODBC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options\Oracle.
+        /// </summary>
+        internal static string RegKeyOptionsOracle {
+            get {
+                return ResourceManager.GetString("RegKeyOptionsOracle", resourceCulture);
             }
         }
     }
