@@ -1,12 +1,13 @@
 ﻿namespace SQLt
 {
+    using SQLt.Properties;
     using System;
     using System.Windows.Forms;
 
     public partial class ConnectionODBC : Form, IConnectionStringDialog
     {
-        private const string ODBC_DSN = "SOFTWARE\\ODBC\\ODBC.INI\\ODBC Data Sources";
-        private const string OPTIONS_ODBC = "Options\\ODBC";
+        private string ODBC_DSN = Resources.ODBCDataSourcesRegKey;
+        private string OPTIONS_ODBC = Resources.RegKeyOptionsODBC;
         private bool isFormLoaded = false;
 
         public ConnectionODBC()
@@ -22,8 +23,7 @@
 
         public string ConnectionString()
         {
-            //string result = "Dsn=" + DSN+";Uid="+UID+";Pwd="+PID+";";
-            return string.Format("Dsn={0};Uid={1};Pwd={2};", DSN, UID, PID);
+            return string.Format(Resources.ConnectionFormatODBC, DSN, UID, PID);
         }
 
         public void LoadOptions()
@@ -32,9 +32,9 @@
             Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(OPTIONS_ODBC);
             if (SearchKey != null)
             {
-                DSN = SearchKey.GetValue("DSN", "").ToString();
-                UID = SearchKey.GetValue("UID", "informix").ToString();
-                PID = SearchKey.GetValue("PID", "informix").ToString();
+                DSN = SearchKey.GetValue(Resources.OdbcOptionDSN, Resources.OdbcDefaultDSN).ToString();
+                UID = SearchKey.GetValue(Resources.OdbcOptionUID, Resources.OdbcDefaultUID).ToString();
+                PID = SearchKey.GetValue(Resources.OdbcOptionPID, Resources.OdbcDefaultPID).ToString();
             }
         }
 
@@ -43,9 +43,9 @@
             Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(OPTIONS_ODBC, true);
             if (SearchKey != null)
             {
-                SearchKey.SetValue("DSN", DSN);
-                SearchKey.SetValue("UID", UID);
-                SearchKey.SetValue("PID", PID);
+                SearchKey.SetValue(Resources.OdbcOptionDSN, DSN);
+                SearchKey.SetValue(Resources.OdbcOptionUID, UID);
+                SearchKey.SetValue(Resources.OdbcOptionPID, PID);
             }
         }
 

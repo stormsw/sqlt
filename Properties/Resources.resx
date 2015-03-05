@@ -154,4 +154,31 @@
   <data name="InformixDefaultInstance" xml:space="preserve">
     <value>lafis</value>
   </data>
+  <data name="ODBCDataSourcesRegKey" xml:space="preserve">
+    <value>SOFTWARE\ODBC\ODBC.INI\ODBC Data Sources</value>
+  </data>
+  <data name="RegKeyOptionsODBC" xml:space="preserve">
+    <value>Options\ODBC</value>
+  </data>
+  <data name="ConnectionFormatODBC" xml:space="preserve">
+    <value>Dsn={0};Uid={1};Pwd={2};</value>
+  </data>
+  <data name="OdbcOptionDSN" xml:space="preserve">
+    <value>DSN</value>
+  </data>
+  <data name="OdbcOptionUID" xml:space="preserve">
+    <value>UID</value>
+  </data>
+  <data name="OdbcOptionPID" xml:space="preserve">
+    <value>PID</value>
+  </data>
+  <data name="OdbcDefaultPID" xml:space="preserve">
+    <value>informix</value>
+  </data>
+  <data name="OdbcDefaultUID" xml:space="preserve">
+    <value>informix</value>
+  </data>
+  <data name="OdbcDefaultDSN" xml:space="preserve">
+    <value />
+  </data>
 </root>

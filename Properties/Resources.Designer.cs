@@ -61,6 +61,15 @@ namespace SQLt.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dsn={0};Uid={1};Pwd={2};.
+        /// </summary>
+        internal static string ConnectionFormatODBC {
+            get {
+                return ResourceManager.GetString("ConnectionFormatODBC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provider=Ifxoledbc.2;User ID={2};password={3};Data Source={1}@{0};Persist Security Info=true.
         /// </summary>
         internal static string InformixConnectionFormat {
@@ -162,11 +171,83 @@ namespace SQLt.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SOFTWARE\ODBC\ODBC.INI\ODBC Data Sources.
+        /// </summary>
+        internal static string ODBCDataSourcesRegKey {
+            get {
+                return ResourceManager.GetString("ODBCDataSourcesRegKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string OdbcDefaultDSN {
+            get {
+                return ResourceManager.GetString("OdbcDefaultDSN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to informix.
+        /// </summary>
+        internal static string OdbcDefaultPID {
+            get {
+                return ResourceManager.GetString("OdbcDefaultPID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to informix.
+        /// </summary>
+        internal static string OdbcDefaultUID {
+            get {
+                return ResourceManager.GetString("OdbcDefaultUID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DSN.
+        /// </summary>
+        internal static string OdbcOptionDSN {
+            get {
+                return ResourceManager.GetString("OdbcOptionDSN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PID.
+        /// </summary>
+        internal static string OdbcOptionPID {
+            get {
+                return ResourceManager.GetString("OdbcOptionPID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UID.
+        /// </summary>
+        internal static string OdbcOptionUID {
+            get {
+                return ResourceManager.GetString("OdbcOptionUID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Options\Informix.
         /// </summary>
         internal static string RegKeyOptionsInformix {
             get {
                 return ResourceManager.GetString("RegKeyOptionsInformix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options\ODBC.
+        /// </summary>
+        internal static string RegKeyOptionsODBC {
+            get {
+                return ResourceManager.GetString("RegKeyOptionsODBC", resourceCulture);
             }
         }
     }
