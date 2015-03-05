@@ -79,6 +79,15 @@ namespace SQLt.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provider=GAFOLEDB.ArcSDE.1;Location={0};Data Source={1}@{2};User Id={3};Password={4};.
+        /// </summary>
+        internal static string ConnectionFormatSDE {
+            get {
+                return ResourceManager.GetString("ConnectionFormatSDE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provider=Ifxoledbc.2;User ID={2};password={3};Data Source={1}@{0};Persist Security Info=true.
         /// </summary>
         internal static string InformixConnectionFormat {
@@ -378,11 +387,110 @@ namespace SQLt.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Options\SDE.
+        /// </summary>
+        internal static string RegKeyOptionsSDE {
+            get {
+                return ResourceManager.GetString("RegKeyOptionsSDE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Options\SQL.
         /// </summary>
         internal static string RegKeyOptionsSQL {
             get {
                 return ResourceManager.GetString("RegKeyOptionsSQL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lafis.
+        /// </summary>
+        internal static string SdeDefaultInstance {
+            get {
+                return ResourceManager.GetString("SdeDefaultInstance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sde.
+        /// </summary>
+        internal static string SdeDefaultPassword {
+            get {
+                return ResourceManager.GetString("SdeDefaultPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to localhost.
+        /// </summary>
+        internal static string SdeDefaultServer {
+            get {
+                return ResourceManager.GetString("SdeDefaultServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5152.
+        /// </summary>
+        internal static string SdeDefaultService {
+            get {
+                return ResourceManager.GetString("SdeDefaultService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sde.
+        /// </summary>
+        internal static string SdeDefaultUser {
+            get {
+                return ResourceManager.GetString("SdeDefaultUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instance.
+        /// </summary>
+        internal static string SdeOptionInstance {
+            get {
+                return ResourceManager.GetString("SdeOptionInstance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string SdeOptionPassword {
+            get {
+                return ResourceManager.GetString("SdeOptionPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server.
+        /// </summary>
+        internal static string SdeOptionServer {
+            get {
+                return ResourceManager.GetString("SdeOptionServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service.
+        /// </summary>
+        internal static string SdeOptionService {
+            get {
+                return ResourceManager.GetString("SdeOptionService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        internal static string SdeOptionUser {
+            get {
+                return ResourceManager.GetString("SdeOptionUser", resourceCulture);
             }
         }
         

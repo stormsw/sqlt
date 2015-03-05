@@ -117,13 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ms" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ms.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mssql" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mssql.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="RegKeyOptionsInformix" xml:space="preserve">
     <value>Options\Informix</value>
   </data>
@@ -252,5 +245,48 @@
   </data>
   <data name="SqlDefaultInstance" xml:space="preserve">
     <value>master</value>
+  </data>
+  <data name="RegKeyOptionsSDE" xml:space="preserve">
+    <value>Options\SDE</value>
+  </data>
+  <data name="ConnectionFormatSDE" xml:space="preserve">
+    <value>Provider=GAFOLEDB.ArcSDE.1;Location={0};Data Source={1}@{2};User Id={3};Password={4};</value>
+  </data>
+  <data name="SdeOptionServer" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="SdeOptionUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="SdeOptionPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SdeOptionInstance" xml:space="preserve">
+    <value>Instance</value>
+  </data>
+  <data name="SdeOptionService" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="SdeDefaultServer" xml:space="preserve">
+    <value>localhost</value>
+  </data>
+  <data name="SdeDefaultUser" xml:space="preserve">
+    <value>sde</value>
+  </data>
+  <data name="SdeDefaultPassword" xml:space="preserve">
+    <value>sde</value>
+  </data>
+  <data name="SdeDefaultInstance" xml:space="preserve">
+    <value>lafis</value>
+  </data>
+  <data name="SdeDefaultService" xml:space="preserve">
+    <value>5152</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ms" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ms.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mssql" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mssql.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+using SQLt.Properties;
 
 namespace SQLt
 {
@@ -19,39 +20,41 @@ namespace SQLt
 
         private Int32 Service { get; set; }
 
+        private string SDE_REGKEY = Resources.RegKeyOptionsSDE;
+
         private string User { get; set; }
         public String ConnectionString()
         {
             String ConnectionStr;
-            ConnectionStr = String.Format(CultureInfo.CurrentCulture, "Provider=GAFOLEDB.ArcSDE.1;Location={0};Data Source={1}@{2};User Id={3};Password={4};", Server, Instance, Service, User, Password);
+            ConnectionStr = String.Format(CultureInfo.CurrentCulture, Resources.ConnectionFormatSDE, Server, Instance, Service, User, Password);
             return ConnectionStr;
         }
 
         public void LoadOptions()
         {
-            Application.UserAppDataRegistry.CreateSubKey("Options\\SDE");
+            Application.UserAppDataRegistry.CreateSubKey(SDE_REGKEY);
 
-            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey("Options\\SDE");
+            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(SDE_REGKEY);
             if (SearchKey != null)
             {
-                Server = SearchKey.GetValue("Server", "localhost").ToString();
-                User = SearchKey.GetValue("User", "sde").ToString();
-                Password = SearchKey.GetValue("Password", "sde").ToString();
-                Instance = SearchKey.GetValue("Instance", "lafis").ToString();
-                Service = Int32.Parse(SearchKey.GetValue("Service", 5152).ToString(), CultureInfo.CurrentCulture);
+                Server = SearchKey.GetValue(Resources.SdeOptionServer, Resources.SdeDefaultServer).ToString();
+                User = SearchKey.GetValue(Resources.SdeOptionUser, Resources.SdeDefaultUser).ToString();
+                Password = SearchKey.GetValue(Resources.SdeOptionPassword, Resources.SdeDefaultPassword).ToString();
+                Instance = SearchKey.GetValue(Resources.SdeOptionInstance, Resources.SdeDefaultInstance).ToString();
+                Service = Int32.Parse(SearchKey.GetValue(Resources.SdeOptionService, Resources.SdeDefaultService).ToString(), CultureInfo.CurrentCulture);
             }
         }
 
         public void SaveOptions()
         {
-            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey("Options\\SDE", true);
+            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(SDE_REGKEY, true);
             if (SearchKey != null)
             {
-                SearchKey.SetValue("Server", Server);
-                SearchKey.SetValue("User", User);
-                SearchKey.SetValue("Password", Password);
-                SearchKey.SetValue("Instance", Instance);
-                SearchKey.SetValue("Service", Service);
+                SearchKey.SetValue(Resources.SdeOptionServer, Server);
+                SearchKey.SetValue(Resources.SdeOptionUser, User);
+                SearchKey.SetValue(Resources.SdeOptionPassword, Password);
+                SearchKey.SetValue(Resources.SdeOptionInstance, Instance);
+                SearchKey.SetValue(Resources.SdeOptionService, Service);
             }
         }
         private void OnClose(object sender, EventArgs e)
