@@ -7,28 +7,26 @@
     public partial class ConnectionInformix : Form, IConnectionStringDialog
     {
         private const string OPTIONS_INFORMIX = "Options\\Informix";
-    
-        private string Server { get; set; }
-        private string User { get; set; }
-        private string Password { get; set; }
-        private string Instance { get; set; }
 
         public ConnectionInformix()
         {
             InitializeComponent();
         }
 
+        private string Instance { get; set; }
 
-        public void SaveOptions()
+        private string Password { get; set; }
+
+        private string Server { get; set; }
+
+        private string User { get; set; }
+
+        public string ConnectionString()
         {
-            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(OPTIONS_INFORMIX, true);
-            if (SearchKey != null)
-            {
-                SearchKey.SetValue("Server", Server);
-                SearchKey.SetValue("User", User);
-                SearchKey.SetValue("Password", Password);
-                SearchKey.SetValue("Instance", Instance);
-            }
+            string
+            ConnectionStr = String.Format(CultureInfo.InvariantCulture,
+                "Provider=Ifxoledbc.2;User ID={2};password={3};Data Source={1}@{0};Persist Security Info=true", Server, Instance, User, Password);
+            return ConnectionStr;
         }
 
         public void LoadOptions()
@@ -44,19 +42,30 @@
             }
         }
 
-
-        public string ConnectionString()
+        public void SaveOptions()
         {
-            string 
-            ConnectionStr = String.Format(CultureInfo.InvariantCulture, 
-                "Provider=Ifxoledbc.2;User ID={2};password={3};Data Source={1}@{0};Persist Security Info=true", Server, Instance, User, Password);
-            return ConnectionStr;
+            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(OPTIONS_INFORMIX, true);
+            if (SearchKey != null)
+            {
+                SearchKey.SetValue("Server", Server);
+                SearchKey.SetValue("User", User);
+                SearchKey.SetValue("Password", Password);
+                SearchKey.SetValue("Instance", Instance);
+            }
         }
-
 
         private void OnClose(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void OnLoad(object sender, EventArgs e)
+        {
+            LoadOptions();
+            txtServer.Text = Server;
+            txtUser.Text = User;
+            txtPass.Text = Password;
+            txtInstance.Text = Instance;
         }
 
         private void OnOK(object sender, EventArgs e)
@@ -69,17 +78,6 @@
             SaveOptions();
 
             Close();
-
         }
-
-        private void OnLoad(object sender, EventArgs e)
-        {
-            LoadOptions();
-            txtServer.Text = Server;
-            txtUser.Text = User;
-            txtPass.Text = Password;
-            txtInstance.Text = Instance;
-        }
-
     }
 }

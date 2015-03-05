@@ -1,37 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SQLt
 {
     public partial class ConnectionSQL : Form, IConnectionStringDialog
     {
-        private string Server { get; set; }
-        private string User { get; set; }
-        private string Password { get; set; }
-        private string Instance { get; set; }
-
         public ConnectionSQL()
         {
             InitializeComponent();
         }
 
-        public void SaveOptions()
+        private string Instance { get; set; }
+
+        private string Password { get; set; }
+
+        private string Server { get; set; }
+
+        private string User { get; set; }
+        public String ConnectionString()
         {
-            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey("Options\\SQL", true);
-            if (SearchKey != null)
-            {
-                SearchKey.SetValue("Server", Server );
-                SearchKey.SetValue("User", User );
-                SearchKey.SetValue("Password", Password );
-                SearchKey.SetValue("Instance", Instance);
-            }
+            String ConnectionStr;
+            ConnectionStr = String.Format(CultureInfo.CurrentCulture, "Provider=sqloledb;Data Source={0};Initial Catalog={1};User Id={2};Password={3};", Server, Instance, User, Password);
+            return ConnectionStr;
         }
 
         public void LoadOptions()
@@ -47,30 +38,25 @@ namespace SQLt
             }
         }
 
-
-        public String ConnectionString()
+        public void SaveOptions()
         {
-            String ConnectionStr;
-            ConnectionStr = String.Format(CultureInfo.CurrentCulture,"Provider=sqloledb;Data Source={0};Initial Catalog={1};User Id={2};Password={3};", Server, Instance,User, Password);
-            return ConnectionStr;
+            Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey("Options\\SQL", true);
+            if (SearchKey != null)
+            {
+                SearchKey.SetValue("Server", Server);
+                SearchKey.SetValue("User", User);
+                SearchKey.SetValue("Password", Password);
+                SearchKey.SetValue("Instance", Instance);
+            }
         }
-
-
-        private void OnOK(object sender, EventArgs e)
+        private void OnActivated(object sender, EventArgs e)
         {
-            Server = txtServer.Text;
-            User = txtUser.Text;
-            Password = txtPass.Text;
-            Instance = txtInstance.Text;
-            SaveOptions();
-            Close();
-
         }
 
         private void OnClose(object sender, EventArgs e)
         {
             Close();
-        }               
+        }
 
         private void OnLoad(object sender, EventArgs e)
         {
@@ -81,8 +67,14 @@ namespace SQLt
             txtServer.Text = Server;
         }
 
-        private void OnActivated(object sender, EventArgs e)
+        private void OnOK(object sender, EventArgs e)
         {
+            Server = txtServer.Text;
+            User = txtUser.Text;
+            Password = txtPass.Text;
+            Instance = txtInstance.Text;
+            SaveOptions();
+            Close();
         }
     }
 }
