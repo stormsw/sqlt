@@ -61,6 +61,24 @@ namespace SQLt.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click settings..
+        /// </summary>
+        internal static string ClickSettings {
+            get {
+                return ResourceManager.GetString("ClickSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connect.
+        /// </summary>
+        internal static string Connect {
+            get {
+                return ResourceManager.GetString("Connect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dsn={0};Uid={1};Pwd={2};.
         /// </summary>
         internal static string ConnectionFormatODBC {
@@ -84,6 +102,24 @@ namespace SQLt.Properties {
         internal static string ConnectionFormatSDE {
             get {
                 return ResourceManager.GetString("ConnectionFormatSDE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disconnect [ODBC].
+        /// </summary>
+        internal static string DisconnectODBC {
+            get {
+                return ResourceManager.GetString("DisconnectODBC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disconnect [OLEDB].
+        /// </summary>
+        internal static string DisconnectOLEDB {
+            get {
+                return ResourceManager.GetString("DisconnectOLEDB", resourceCulture);
             }
         }
         
@@ -115,7 +151,7 @@ namespace SQLt.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to localhost.
         /// </summary>
         internal static string InformixDefaultServer {
             get {
@@ -536,6 +572,15 @@ namespace SQLt.Properties {
         internal static string SqlDefaultUser {
             get {
                 return ResourceManager.GetString("SqlDefaultUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SQL files (*.sql)|*.sql|All files (*.*)|*.*.
+        /// </summary>
+        internal static string SQLFilesFilter {
+            get {
+                return ResourceManager.GetString("SQLFilesFilter", resourceCulture);
             }
         }
         

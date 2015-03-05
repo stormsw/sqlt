@@ -1,4 +1,5 @@
 ﻿using SQLt.Properties;
+
 namespace SQLt
 {
     using System;

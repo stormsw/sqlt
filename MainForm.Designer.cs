@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.panel1 = new System.Windows.Forms.Panel();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnConStrBuilder = new System.Windows.Forms.ToolStripSplitButton();
@@ -46,7 +45,6 @@
             this.btnQuery = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnOpen = new System.Windows.Forms.ToolStripButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.lstHistory = new System.Windows.Forms.ListBox();
@@ -60,46 +58,53 @@
             this.ObjectView = new System.Windows.Forms.TreeView();
             this.dbObjects = new System.Windows.Forms.ImageList(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.toolStripContainer1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(701, 41);
-            this.panel1.TabIndex = 10;
             // 
             // toolStripContainer1
             // 
+            resources.ApplyResources(this.toolStripContainer1, "toolStripContainer1");
+            // 
+            // toolStripContainer1.BottomToolStripPanel
+            // 
+            resources.ApplyResources(this.toolStripContainer1.BottomToolStripPanel, "toolStripContainer1.BottomToolStripPanel");
             // 
             // toolStripContainer1.ContentPanel
             // 
+            resources.ApplyResources(this.toolStripContainer1.ContentPanel, "toolStripContainer1.ContentPanel");
             this.toolStripContainer1.ContentPanel.Controls.Add(this.toolStrip1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(701, 35);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
+            // 
+            // toolStripContainer1.LeftToolStripPanel
+            // 
+            resources.ApplyResources(this.toolStripContainer1.LeftToolStripPanel, "toolStripContainer1.LeftToolStripPanel");
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(701, 60);
-            this.toolStripContainer1.TabIndex = 11;
-            this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // toolStripContainer1.RightToolStripPanel
+            // 
+            resources.ApplyResources(this.toolStripContainer1.RightToolStripPanel, "toolStripContainer1.RightToolStripPanel");
+            // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            resources.ApplyResources(this.toolStripContainer1.TopToolStripPanel, "toolStripContainer1.TopToolStripPanel");
             // 
             // toolStrip1
             // 
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnConStrBuilder,
@@ -110,14 +115,11 @@
             this.btnQuery,
             this.btnSave,
             this.btnOpen});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(701, 39);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
             // 
             // btnConStrBuilder
             // 
+            resources.ApplyResources(this.btnConStrBuilder, "btnConStrBuilder");
             this.btnConStrBuilder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnConStrBuilder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sDEToolStripMenuItem,
@@ -125,170 +127,123 @@
             this.mSSQLToolStripMenuItem,
             this.oRACLEToolStripMenuItem,
             this.oDBCToolStripMenuItem});
-            this.btnConStrBuilder.Image = ((System.Drawing.Image)(resources.GetObject("btnConStrBuilder.Image")));
-            this.btnConStrBuilder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnConStrBuilder.Name = "btnConStrBuilder";
-            this.btnConStrBuilder.Size = new System.Drawing.Size(48, 36);
-            this.btnConStrBuilder.Text = "Builder";
             // 
             // sDEToolStripMenuItem
             // 
-            this.sDEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sDEToolStripMenuItem.Image")));
+            resources.ApplyResources(this.sDEToolStripMenuItem, "sDEToolStripMenuItem");
             this.sDEToolStripMenuItem.Name = "sDEToolStripMenuItem";
-            this.sDEToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.sDEToolStripMenuItem.Text = "SDE";
             this.sDEToolStripMenuItem.Click += new System.EventHandler(this.OnSDE);
             // 
             // iNFORMIXToolStripMenuItem
             // 
-            this.iNFORMIXToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("iNFORMIXToolStripMenuItem.Image")));
+            resources.ApplyResources(this.iNFORMIXToolStripMenuItem, "iNFORMIXToolStripMenuItem");
             this.iNFORMIXToolStripMenuItem.Name = "iNFORMIXToolStripMenuItem";
-            this.iNFORMIXToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.iNFORMIXToolStripMenuItem.Text = "INFORMIX";
             this.iNFORMIXToolStripMenuItem.Click += new System.EventHandler(this.OnInformix);
             // 
             // mSSQLToolStripMenuItem
             // 
-            this.mSSQLToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mSSQLToolStripMenuItem.Image")));
+            resources.ApplyResources(this.mSSQLToolStripMenuItem, "mSSQLToolStripMenuItem");
             this.mSSQLToolStripMenuItem.Name = "mSSQLToolStripMenuItem";
-            this.mSSQLToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.mSSQLToolStripMenuItem.Text = "MSSQL";
             this.mSSQLToolStripMenuItem.Click += new System.EventHandler(this.OnSQL);
             // 
             // oRACLEToolStripMenuItem
             // 
-            this.oRACLEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("oRACLEToolStripMenuItem.Image")));
+            resources.ApplyResources(this.oRACLEToolStripMenuItem, "oRACLEToolStripMenuItem");
             this.oRACLEToolStripMenuItem.Name = "oRACLEToolStripMenuItem";
-            this.oRACLEToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.oRACLEToolStripMenuItem.Text = "ORACLE";
             this.oRACLEToolStripMenuItem.Click += new System.EventHandler(this.OnOracle);
             // 
             // oDBCToolStripMenuItem
             // 
-            this.oDBCToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("oDBCToolStripMenuItem.Image")));
+            resources.ApplyResources(this.oDBCToolStripMenuItem, "oDBCToolStripMenuItem");
             this.oDBCToolStripMenuItem.Name = "oDBCToolStripMenuItem";
-            this.oDBCToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.oDBCToolStripMenuItem.Text = "ODBC";
             this.oDBCToolStripMenuItem.Click += new System.EventHandler(this.OnODBC);
             // 
             // tlConStr
             // 
+            resources.ApplyResources(this.tlConStr, "tlConStr");
             this.tlConStr.Name = "tlConStr";
-            this.tlConStr.Size = new System.Drawing.Size(250, 39);
             // 
             // checkOLE
             // 
+            resources.ApplyResources(this.checkOLE, "checkOLE");
             this.checkOLE.CheckOnClick = true;
             this.checkOLE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.checkOLE.Image = ((System.Drawing.Image)(resources.GetObject("checkOLE.Image")));
-            this.checkOLE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkOLE.Name = "checkOLE";
-            this.checkOLE.Size = new System.Drawing.Size(23, 36);
-            this.checkOLE.Text = "OLE";
             this.checkOLE.Click += new System.EventHandler(this.SwitchDBMode);
             // 
             // btnConnect
             // 
-            this.btnConnect.Image = ((System.Drawing.Image)(resources.GetObject("btnConnect.Image")));
-            this.btnConnect.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.btnConnect, "btnConnect");
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(88, 36);
-            this.btnConnect.Text = "Connect";
             this.btnConnect.Click += new System.EventHandler(this.OnConnect);
             // 
             // toolStripSeparator1
             // 
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // btnQuery
             // 
-            this.btnQuery.Enabled = false;
-            this.btnQuery.Image = ((System.Drawing.Image)(resources.GetObject("btnQuery.Image")));
-            this.btnQuery.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.btnQuery, "btnQuery");
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(75, 36);
-            this.btnQuery.Text = "Query";
             this.btnQuery.Click += new System.EventHandler(this.OnQuery);
             // 
             // btnSave
             // 
+            resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(36, 36);
-            this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.SaveSQL);
             // 
             // btnOpen
             // 
+            resources.ApplyResources(this.btnOpen, "btnOpen");
             this.btnOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
-            this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(36, 36);
-            this.btnOpen.Text = "Open";
-            this.btnOpen.ToolTipText = "Open";
             this.btnOpen.Click += new System.EventHandler(this.LoadSQL);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Connection string";
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 41);
+            resources.ApplyResources(this.splitContainer1, "splitContainer1");
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
             this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
             // 
             // splitContainer1.Panel2
             // 
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(701, 468);
-            this.splitContainer1.SplitterDistance = 232;
-            this.splitContainer1.TabIndex = 12;
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.splitContainer2, "splitContainer2");
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
             // 
+            resources.ApplyResources(this.splitContainer2.Panel1, "splitContainer2.Panel1");
             this.splitContainer2.Panel1.Controls.Add(this.lstHistory);
             this.splitContainer2.Panel1.Controls.Add(this.txtHistory);
             // 
             // splitContainer2.Panel2
             // 
+            resources.ApplyResources(this.splitContainer2.Panel2, "splitContainer2.Panel2");
             this.splitContainer2.Panel2.Controls.Add(this.ObjectView);
-            this.splitContainer2.Size = new System.Drawing.Size(701, 232);
-            this.splitContainer2.SplitterDistance = 500;
-            this.splitContainer2.TabIndex = 11;
             // 
             // lstHistory
             // 
+            resources.ApplyResources(this.lstHistory, "lstHistory");
             this.lstHistory.ContextMenuStrip = this.contextMenuStrip1;
-            this.lstHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lstHistory.FormattingEnabled = true;
-            this.lstHistory.Location = new System.Drawing.Point(0, 163);
             this.lstHistory.Name = "lstHistory";
-            this.lstHistory.Size = new System.Drawing.Size(500, 69);
-            this.lstHistory.TabIndex = 11;
             // 
             // contextMenuStrip1
             // 
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem3,
             this.toolStripMenuItem1,
@@ -296,62 +251,46 @@
             this.toolStripMenuItem6,
             this.toolStripMenuItem4});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(140, 98);
             // 
             // toolStripMenuItem3
             // 
+            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem3.Text = "Insert";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.lstHistory_DoubleClick);
             // 
             // toolStripMenuItem1
             // 
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem1.Text = "Add to SQL";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
-            this.toolStripMenuItem2.Enabled = false;
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem2.Text = "Save History";
             // 
             // toolStripMenuItem6
             // 
+            resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(149, 6);
             // 
             // toolStripMenuItem4
             // 
+            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem4.Text = "Clear";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // txtHistory
             // 
-            this.txtHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtHistory.Location = new System.Drawing.Point(0, 0);
-            this.txtHistory.Multiline = true;
+            resources.ApplyResources(this.txtHistory, "txtHistory");
             this.txtHistory.Name = "txtHistory";
-            this.txtHistory.Size = new System.Drawing.Size(500, 232);
-            this.txtHistory.TabIndex = 1;
-            this.txtHistory.Text = "SELECT * FROM OPENQUERY(LAFIS_INVEKOS,\'SELECT 1\') ";
             // 
             // ObjectView
             // 
-            this.ObjectView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ObjectView.ImageIndex = 0;
+            resources.ApplyResources(this.ObjectView, "ObjectView");
             this.ObjectView.ImageList = this.dbObjects;
             this.ObjectView.ItemHeight = 24;
-            this.ObjectView.Location = new System.Drawing.Point(0, 0);
             this.ObjectView.Name = "ObjectView";
-            this.ObjectView.SelectedImageIndex = 1;
-            this.ObjectView.Size = new System.Drawing.Size(197, 232);
-            this.ObjectView.TabIndex = 0;
             // 
             // dbObjects
             // 
@@ -364,27 +303,31 @@
             // 
             // dataGridView1
             // 
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(701, 232);
-            this.dataGridView1.TabIndex = 10;
+            // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.toolStripContainer1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Name = "panel1";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 509);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Test SQL";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.Load += new System.EventHandler(this.OnLoad);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
@@ -393,13 +336,17 @@
             this.toolStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

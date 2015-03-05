@@ -1,4 +1,5 @@
-﻿namespace SQLt
+﻿using SQLt.Properties;
+namespace SQLt
 {
     using System;
     using System.Collections;
@@ -19,7 +20,7 @@
         private const string ROOT_DB = "RootDB";
         private const string TABLE = "TABLE";
         private const string TABLES = "Tables";
-        private String connectionString = "Click settings.";
+        private String connectionString = Resources.ClickSettings;
         private ArrayList fldArray;
         private OdbcConnection OdbcConnection = new OdbcConnection();
         private OleDbConnection OleDbConnection = new OleDbConnection();
@@ -68,14 +69,14 @@
 
                 if (IsOdbcConnected)
                 {
-                    btnConnect.Text = "Disconnect [ODBC]";
+                    btnConnect.Text = Resources.DisconnectODBC;
                     dataGridView1.DataSource = OdbcConnection.GetSchema();
                 }
             }
             else
             {
                 OdbcConnection.Close();
-                btnConnect.Text = "Connect";
+                btnConnect.Text = Resources.Connect;
                 dataGridView1.DataSource = null;
             }
         }
@@ -96,7 +97,7 @@
 
                 if (IsOleConnected)
                 {
-                    btnConnect.Text = "Disconnect [OLEDB]";
+                    btnConnect.Text = Resources.DisconnectOLEDB;
                     dataGridView1.DataSource = OleDbConnection.GetSchema();
                     FillTreeView(OleDbConnection);
                 }
@@ -104,7 +105,7 @@
             else
             {
                 OleDbConnection.Close();
-                btnConnect.Text = "Connect";
+                btnConnect.Text = Resources.Connect;
                 dataGridView1.DataSource = null;
             }
         }
@@ -220,7 +221,7 @@
             using (OpenFileDialog fileOpenDialog = new OpenFileDialog())
             {
                 fileOpenDialog.CheckFileExists = true;
-                fileOpenDialog.Filter = "SQL files (*.sql)|*.sql|All files (*.*)|*.*";
+                fileOpenDialog.Filter = Resources.SQLFilesFilter;
                 fileOpenDialog.FilterIndex = 1;
                 if (fileOpenDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -408,7 +409,7 @@
                 fileSaveDialog.AddExtension = true;
                 fileSaveDialog.CheckPathExists = true;
                 fileSaveDialog.DefaultExt = ".sql";
-                fileSaveDialog.Filter = "SQL files (*.sql)|*.sql|All files (*.*)|*.*";
+                fileSaveDialog.Filter = Resources.SQLFilesFilter;
                 fileSaveDialog.FilterIndex = 1;
                 if (fileSaveDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -460,7 +461,6 @@
 
         private void UpdateUI()
         {
-            //textBox1.Text = connectionString;
             tlConStr.Text = connectionString;
         }
     }

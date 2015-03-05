@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConnectionInformix));
             this.button1 = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
@@ -42,96 +43,64 @@
             // 
             // button1
             // 
+            resources.ApplyResources(this.button1, "button1");
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(94, 129);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.OnClose);
             // 
             // btnOk
             // 
+            resources.ApplyResources(this.btnOk, "btnOk");
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(173, 129);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 4;
-            this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.OnOK);
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(94, 90);
+            resources.ApplyResources(this.txtPass, "txtPass");
             this.txtPass.Name = "txtPass";
-            this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(154, 20);
-            this.txtPass.TabIndex = 3;
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(94, 64);
+            resources.ApplyResources(this.txtUser, "txtUser");
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(154, 20);
-            this.txtUser.TabIndex = 2;
             // 
             // txtInstance
             // 
-            this.txtInstance.Location = new System.Drawing.Point(94, 38);
+            resources.ApplyResources(this.txtInstance, "txtInstance");
             this.txtInstance.Name = "txtInstance";
-            this.txtInstance.Size = new System.Drawing.Size(154, 20);
-            this.txtInstance.TabIndex = 1;
             // 
             // txtServer
             // 
-            this.txtServer.Location = new System.Drawing.Point(94, 12);
+            resources.ApplyResources(this.txtServer, "txtServer");
             this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(154, 20);
-            this.txtServer.TabIndex = 0;
             // 
             // labelPassword
             // 
-            this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(12, 93);
+            resources.ApplyResources(this.labelPassword, "labelPassword");
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(53, 13);
-            this.labelPassword.TabIndex = 25;
-            this.labelPassword.Text = "Password";
             // 
             // labelUser
             // 
-            this.labelUser.AutoSize = true;
-            this.labelUser.Location = new System.Drawing.Point(12, 67);
+            resources.ApplyResources(this.labelUser, "labelUser");
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(29, 13);
-            this.labelUser.TabIndex = 24;
-            this.labelUser.Text = "User";
             // 
             // labelDatabase
             // 
-            this.labelDatabase.AutoSize = true;
-            this.labelDatabase.Location = new System.Drawing.Point(12, 41);
+            resources.ApplyResources(this.labelDatabase, "labelDatabase");
             this.labelDatabase.Name = "labelDatabase";
-            this.labelDatabase.Size = new System.Drawing.Size(64, 13);
-            this.labelDatabase.TabIndex = 23;
-            this.labelDatabase.Text = "DATABASE";
             // 
             // labelSid
             // 
-            this.labelSid.AutoSize = true;
-            this.labelSid.Location = new System.Drawing.Point(12, 15);
+            resources.ApplyResources(this.labelSid, "labelSid");
             this.labelSid.Name = "labelSid";
-            this.labelSid.Size = new System.Drawing.Size(64, 13);
-            this.labelSid.TabIndex = 22;
-            this.labelSid.Text = "Informix SID";
             // 
             // ConnectionInformix
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 160);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txtPass);
@@ -144,7 +113,6 @@
             this.Controls.Add(this.labelSid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ConnectionInformix";
-            this.Text = "Informix Connection";
             this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
             this.PerformLayout();

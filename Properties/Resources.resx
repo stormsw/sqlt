@@ -119,168 +119,223 @@
   </resheader>
   <data name="RegKeyOptionsInformix" xml:space="preserve">
     <value>Options\Informix</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="InformixConnectionFormat" xml:space="preserve">
     <value>Provider=Ifxoledbc.2;User ID={2};password={3};Data Source={1}@{0};Persist Security Info=true</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="InformixOptionServer" xml:space="preserve">
     <value>Server</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="InformixOptionUser" xml:space="preserve">
     <value>User</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="InformixOptionPassword" xml:space="preserve">
     <value>Password</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="InformixOptionInstance" xml:space="preserve">
     <value>Instance</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="InformixDefaultServer" xml:space="preserve">
-    <value />
+    <value>localhost</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="InformixDefaultUser" xml:space="preserve">
     <value>informix</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="InformixDefaultPassword" xml:space="preserve">
     <value>informix</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="InformixDefaultInstance" xml:space="preserve">
     <value>lafis</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="ODBCDataSourcesRegKey" xml:space="preserve">
     <value>SOFTWARE\ODBC\ODBC.INI\ODBC Data Sources</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="RegKeyOptionsODBC" xml:space="preserve">
     <value>Options\ODBC</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="ConnectionFormatODBC" xml:space="preserve">
     <value>Dsn={0};Uid={1};Pwd={2};</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OdbcOptionDSN" xml:space="preserve">
     <value>DSN</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OdbcOptionUID" xml:space="preserve">
     <value>UID</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OdbcOptionPID" xml:space="preserve">
     <value>PID</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OdbcDefaultPID" xml:space="preserve">
     <value>informix</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OdbcDefaultUID" xml:space="preserve">
     <value>informix</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OdbcDefaultDSN" xml:space="preserve">
     <value />
+    <comment>@Invariant</comment>
   </data>
   <data name="RegKeyOptionsOracle" xml:space="preserve">
     <value>Options\Oracle</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="ConnectionFormatOracle" xml:space="preserve">
     <value>Provider=OraOLEDB.Oracle;Data Source=(DESCRIPTION=(CID=GTU_APP)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST={0})(PORT={1})))(CONNECT_DATA=(SID={2})(SERVER=DEDICATED)));User Id={3};Password={4};</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleOptionServer" xml:space="preserve">
     <value>Server</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleOptionUser" xml:space="preserve">
     <value>User</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleOptionPassword" xml:space="preserve">
     <value>Password</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleOptionDb" xml:space="preserve">
     <value>DATABASE</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleOptionSID" xml:space="preserve">
     <value>SID</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleOptionPort" xml:space="preserve">
     <value>Port</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleDefaultServer" xml:space="preserve">
     <value>localhost</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleDefaultUser" xml:space="preserve">
     <value>lafisadmin</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleDefaultPassword" xml:space="preserve">
     <value>a</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleDefaultDatabase" xml:space="preserve">
     <value>lafis</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleDefaultSid" xml:space="preserve">
     <value>orcl</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="OracleDefaultPort" xml:space="preserve">
     <value>1521</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="RegKeyOptionsSQL" xml:space="preserve">
     <value>Options\SQL</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SqlConnectionFormat" xml:space="preserve">
     <value>Provider=sqloledb;Data Source={0};Initial Catalog={1};User Id={2};Password={3};</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SqlOptionServer" xml:space="preserve">
     <value>Server</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SqlOptionUser" xml:space="preserve">
     <value>User</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SqlOptionPassword" xml:space="preserve">
     <value>Password</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SqlOptionInstance" xml:space="preserve">
     <value>Instance</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SqlDefaultServer" xml:space="preserve">
     <value>localhost</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SqlDefaultUser" xml:space="preserve">
     <value>sa</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SqlDefaultPassword" xml:space="preserve">
     <value>sa</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SqlDefaultInstance" xml:space="preserve">
     <value>master</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="RegKeyOptionsSDE" xml:space="preserve">
     <value>Options\SDE</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="ConnectionFormatSDE" xml:space="preserve">
     <value>Provider=GAFOLEDB.ArcSDE.1;Location={0};Data Source={1}@{2};User Id={3};Password={4};</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SdeOptionServer" xml:space="preserve">
     <value>Server</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SdeOptionUser" xml:space="preserve">
     <value>User</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SdeOptionPassword" xml:space="preserve">
     <value>Password</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SdeOptionInstance" xml:space="preserve">
     <value>Instance</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SdeOptionService" xml:space="preserve">
     <value>Service</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SdeDefaultServer" xml:space="preserve">
     <value>localhost</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SdeDefaultUser" xml:space="preserve">
     <value>sde</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SdeDefaultPassword" xml:space="preserve">
     <value>sde</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SdeDefaultInstance" xml:space="preserve">
     <value>lafis</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="SdeDefaultService" xml:space="preserve">
     <value>5152</value>
+    <comment>@Invariant</comment>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ms" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -288,5 +343,20 @@
   </data>
   <data name="mssql" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mssql.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClickSettings" xml:space="preserve">
+    <value>Click settings.</value>
+  </data>
+  <data name="DisconnectODBC" xml:space="preserve">
+    <value>Disconnect [ODBC]</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="DisconnectOLEDB" xml:space="preserve">
+    <value>Disconnect [OLEDB]</value>
+  </data>
+  <data name="SQLFilesFilter" xml:space="preserve">
+    <value>SQL files (*.sql)|*.sql|All files (*.*)|*.*</value>
   </data>
 </root>
