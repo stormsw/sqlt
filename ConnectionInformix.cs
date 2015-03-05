@@ -1,4 +1,5 @@
-﻿namespace SQLt
+﻿using SQLt.Properties;
+namespace SQLt
 {
     using System;
     using System.Globalization;
@@ -6,7 +7,7 @@
 
     public partial class ConnectionInformix : Form, IConnectionStringDialog
     {
-        private const string OPTIONS_INFORMIX = "Options\\Informix";
+        private string OPTIONS_INFORMIX = Resources.RegKeyOptionsInformix;
 
         public ConnectionInformix()
         {
@@ -25,7 +26,7 @@
         {
             string
             ConnectionStr = String.Format(CultureInfo.InvariantCulture,
-                "Provider=Ifxoledbc.2;User ID={2};password={3};Data Source={1}@{0};Persist Security Info=true", Server, Instance, User, Password);
+                Resources.InformixConnectionFormat, Server, Instance, User, Password);
             return ConnectionStr;
         }
 
@@ -35,10 +36,10 @@
             Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(OPTIONS_INFORMIX);
             if (SearchKey != null)
             {
-                Server = SearchKey.GetValue("Server", "").ToString();
-                User = SearchKey.GetValue("User", "informix").ToString();
-                Password = SearchKey.GetValue("Password", "informix").ToString();
-                Instance = SearchKey.GetValue("Instance", "lafis").ToString();
+                Server = SearchKey.GetValue(Resources.InformixOptionServer, Resources.InformixDefaultServer).ToString();
+                User = SearchKey.GetValue(Resources.InformixOptionUser, Resources.InformixDefaultUser).ToString();
+                Password = SearchKey.GetValue(Resources.InformixOptionPassword, Resources.InformixDefaultPassword).ToString();
+                Instance = SearchKey.GetValue(Resources.InformixOptionInstance, Resources.InformixDefaultInstance).ToString();
             }
         }
 
@@ -47,10 +48,10 @@
             Microsoft.Win32.RegistryKey SearchKey = Application.UserAppDataRegistry.OpenSubKey(OPTIONS_INFORMIX, true);
             if (SearchKey != null)
             {
-                SearchKey.SetValue("Server", Server);
-                SearchKey.SetValue("User", User);
-                SearchKey.SetValue("Password", Password);
-                SearchKey.SetValue("Instance", Instance);
+                SearchKey.SetValue(Resources.InformixOptionServer, Server);
+                SearchKey.SetValue(Resources.InformixOptionUser, User);
+                SearchKey.SetValue(Resources.InformixOptionPassword, Password);
+                SearchKey.SetValue(Resources.InformixOptionInstance, Instance);
             }
         }
 
